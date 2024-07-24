@@ -1,0 +1,11 @@
+{
+  "name": "apufunktioita_ja_yksikkotesteja",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "node --test"
+  },
+  "author": "Mikko Sarkiniemi",
+  "license": "ISC",
+  "description": ""
+}
