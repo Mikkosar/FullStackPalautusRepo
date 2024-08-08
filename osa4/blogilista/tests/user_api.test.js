@@ -9,15 +9,16 @@ const helper = require('./test_helper');
 const app = require('../app');
 const api = supertest(app);
 
-describe('There is only one usre in db at the start', () => {
-    beforeEach(async () => {
-        await user.deleteMany({});
+beforeEach(async () => {
+    await User.deleteMany({});
 
-        const passwordHash = await bcrypt.hash('salaisuus', 10);
-        const user = new User({ username: 'user', passwordHash })
+    const passwordHash = await bcrypt.hash('salaisuus', 10);
+    const user = new User({ username: 'user', passwordHash })
 
-        user.save()
-    })
+    user.save()
+});
+
+describe('There is only one user in db at the start', () => {
 
     test('user creation works with a fresh username', async () => {
         const usersAtStart = await helper.allUsersInDb();
@@ -35,6 +36,30 @@ describe('There is only one usre in db at the start', () => {
             .expect('Content-Type', /application\/json/);
 
         const usersAtEnd = await helper.allUsersInDb();
-        assert.strictEqual(usersAtEnd.length, )
-    })
+        assert.strictEqual(usersAtEnd.length, usersAtStart.length + 1)
+    });
+
+    test('creation fails with proper statuscode and message if username already taken', async () => {
+        const usersAtStart = await helper.allUsersInDb();
+
+        const newUser = {
+            username: 'user',
+            name: 'user',
+            password: 'salainen',
+        }
+
+        const res = await api
+            .post('/api/users')
+            .send(newUser)
+            .expect(400)
+            .expect('Content-Type', /application\/json/);
+        
+        const usersAtEnd = await helper.allUsersInDb();
+        assert(res.body.error.includes('expected `username` to be unique'));
+        assert.strictEqual(usersAtStart.length, usersAtEnd.length);
+    });
+});
+
+after(async () => {
+    await mongoose.connection.close();
 });

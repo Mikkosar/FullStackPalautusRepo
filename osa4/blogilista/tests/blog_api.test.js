@@ -80,7 +80,7 @@ describe('POST tests', () => {
         assert.strictEqual(wantgedBlog[0].likes, 0);
     });
 
-    test('Statuskoodi on 400 jos blogin url tai title puuttuu', async () => {
+    test('Statuscode is 400 if blogs url or title is missing', async () => {
         const newBlog = {
             author:"tester",
             likes: 100
