@@ -1,0 +1,15 @@
+Script started on 2025-04-19 11:26:07+03:00 [TERM="xterm-256color" TTY="/dev/pts/3" COLUMNS="291" LINES="29"]
+[?2004h]0;root@DESKTOP-U7EUG0A: /mnt/d/Koulujuttuja/fullstack/osa12/part12-containers-applicationsroot@DESKTOP-U7EUG0A:/mnt/d/Koulujuttuja/fullstack/osa12/part12-containers-applications# docker run -it ubuntu bash
+[?2004lUnable to find image 'ubuntu:latest' locally
+latest: Pulling from library/ubuntu
+
+[1A[2K2726e237d1a3: Pulling fs layer [1B[1A[2K2726e237d1a3: Downloading [>                                                  ]  298.2kB/29.72MB[1B[1A[2K2726e237d1a3: Downloading [==========>                                        ]  6.462MB/29.72MB[1B[1A[2K2726e237d1a3: Downloading [======================>                            ]  13.18MB/29.72MB[1B[1A[2K2726e237d1a3: Downloading [=================================>                 ]  19.95MB/29.72MB[1B[1A[2K2726e237d1a3: Downloading [============================================>      ]  26.44MB/29.72MB[1B[1A[2K2726e237d1a3: Verifying Checksum [1B[1A[2K2726e237d1a3: Download complete [1B[1A[2K2726e237d1a3: Extracting [>                                                  ]  327.7kB/29.72MB[1B[1A[2K2726e237d1a3: Extracting [============>                                      ]  7.537MB/29.72MB[1B[1A[2K2726e237d1a3: Extracting [===================>                               ]   11.8MB/29.72MB[1B[1A[2K2726e237d1a3: Extracting [=======================================>           ]  23.59MB/29.72MB[1B[1A[2K2726e237d1a3: Extracting [===========================================>       ]  25.56MB/29.72MB[1B[1A[2K2726e237d1a3: Extracting [===============================================>   ]  28.51MB/29.72MB[1B[1A[2K2726e237d1a3: Extracting [=================================================> ]  29.49MB/29.72MB[1B[1A[2K2726e237d1a3: Extracting [==================================================>]  29.72MB/29.72MB[1B[1A[2K2726e237d1a3: Pull complete [1BDigest: sha256:1e622c5f073b4f6bfad6632f2616c7f59ef256e96fe78bf6a595d1dc4376ac02
+Status: Downloaded newer image for ubuntu:latest
+[?2004h]0;root@67903c245cf1: /root@67903c245cf1:/# mkdir -p /usr/src/app
+[?2004l[?2004h]0;root@67903c245cf1: /root@67903c245cf1:/# touch /usr/src/app/index.js
+[?2004l[?2004h]0;root@67903c245cf1: /root@67903c245cf1:/# [Kexit
+[?2004lexit
+[?2004h]0;root@DESKTOP-U7EUG0A: /mnt/d/Koulujuttuja/fullstack/osa12/part12-containers-applicationsroot@DESKTOP-U7EUG0A:/mnt/d/Koulujuttuja/fullstack/osa12/part12-containers-applications# exit
+[?2004lexit
+
+Script done on 2025-04-19 11:26:48+03:00 [COMMAND_EXIT_CODE="0"]
