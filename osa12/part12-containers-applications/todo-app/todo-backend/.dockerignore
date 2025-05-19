@@ -1,0 +1,7 @@
+.dockerignore
+.gitignore
+node_modules
+Dockerfile
+todo-backend/node_modules
+todo-frontend/node_modules
+**/node_modules

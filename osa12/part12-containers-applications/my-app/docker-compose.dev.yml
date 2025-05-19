@@ -1,0 +1,37 @@
+services:
+  server:
+    container_name: kaluste_backend
+    build:
+      context: ./backend
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./backend:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - SERPAPI_API_KEY=${SERPAPI_API_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      - MONGODB_URI=${MONGODB_URI}
+  app:
+    build:
+      context: ./frontend
+      dockerfile: dev.Dockerfile
+    volumes:
+      - ./frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    container_name: kaluste-frontend-dev
+    environment:
+      VITE_BACKEND_URL: ${VITE_BACKEND_URL}
+    depends_on:
+      - server
+  nginx:
+    image: nginx:latest
+    container_name: kaluste_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - server
+      - app
